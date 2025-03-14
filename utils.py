@@ -4,15 +4,15 @@ from PIL import Image, ImageFont, ImageDraw, ImageOps
 
 def sort_chars(char_list, font, language):
     if language == "chinese":
-        char_width, char_height = font.getsize("制")
+        _,_,char_width, char_height = font.getbbox("制")
     elif language == "korean":
-        char_width, char_height = font.getsize("ㅊ")
+        _,_,char_width, char_height = font.getbbox("ㅊ")
     elif language == "japanese":
-        char_width, char_height = font.getsize("あ")
+        _,_,char_width, char_height = font.getbbox("あ")
     elif language in ["english", "german", "french", "spanish", "italian", "portuguese", "polish"]:
-        char_width, char_height = font.getsize("A")
+        _,_,char_width, char_height = font.getbbox("A")
     elif language == "russian":
-        char_width, char_height = font.getsize("A")
+        _,_,char_width, char_height = font.getbbox("A")
     num_chars = min(len(char_list), 100)
     out_width = char_width * len(char_list)
     out_height = char_height
